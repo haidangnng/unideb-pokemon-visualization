@@ -1,0 +1,57 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Pokemon {
+  id                Int    @id @default(autoincrement())
+  name              String
+  // abilities         String[]
+  against_bug       Float
+  against_dark      Float
+  against_dragon    Float
+  against_electric  Float
+  against_fight     Float
+  against_fire      Float
+  against_flying    Float
+  against_ghost     Float
+  against_grass     Float
+  against_ground    Float
+  against_ice       Float
+  against_normal    Float
+  against_poison    Float
+  against_psychic   Float
+  against_rock      Float
+  against_steel     Float
+  against_water     Float
+  attack            Float
+  base_egg_steps    Float
+  base_happiness    Float
+  base_total        Float
+  capture_rate      Float
+  classfication     String
+  defense           Float
+  experience_growth Float
+  height_m          Float
+  hp                Float
+  percentage_male   Float
+  sp_attack         Float
+  sp_defense        Float
+  speed             Float
+  pokedex_number    Float
+  type1             String
+  type2             String
+  weight_kg         Float
+  generation        Float
+  is_legendary      Float
+}
