@@ -4,8 +4,9 @@
 
 	export let el;
 	export let data;
-	const { types, sprites, name, stats } = data;
-	console.log('data', data);
+	const { types, sprites, name, stats, abilities } = data;
+
+	console.log('abilities', { abilities, stats });
 </script>
 
 <div bind:this={el} class="chart"></div>
@@ -19,9 +20,9 @@
 		{/each}
 	</div>
 
-	<Accordion.Root>
+	<Accordion.Root class="w-full">
 		<Accordion.Item value="item-1">
-			<Accordion.Trigger>Is it accessible?</Accordion.Trigger>
+			<Accordion.Trigger>Abilities</Accordion.Trigger>
 			<Accordion.Content>Yes. It adheres to the WAI-ARIA design pattern.</Accordion.Content>
 		</Accordion.Item>
 	</Accordion.Root>

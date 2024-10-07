@@ -47,21 +47,22 @@
 	</header>
 
 	<main class="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-8 w-screen">
-		<Breadcrumb.Root class="hidden md:flex">
-			<Breadcrumb.List>
-				<Breadcrumb.Item>
-					<Breadcrumb.Link href="##">Dashboard</Breadcrumb.Link>
-				</Breadcrumb.Item>
-				<Breadcrumb.Separator />
-				<Breadcrumb.Item>
-					<Breadcrumb.Link href="##">Products</Breadcrumb.Link>
-				</Breadcrumb.Item>
-				<Breadcrumb.Separator />
-				<Breadcrumb.Item>
-					<Breadcrumb.Page>All Products</Breadcrumb.Page>
-				</Breadcrumb.Item>
-			</Breadcrumb.List>
-		</Breadcrumb.Root>
+		<!-- <Breadcrumb.Root class="hidden md:flex"> -->
+		<!-- 	<Breadcrumb.List> -->
+		<!-- 		<Breadcrumb.Item> -->
+		<!-- 			<Breadcrumb.Link href="##">Dashboard</Breadcrumb.Link> -->
+		<!-- 		</Breadcrumb.Item> -->
+		<!-- 		<Breadcrumb.Separator /> -->
+		<!-- 		<Breadcrumb.Item> -->
+		<!-- 			<Breadcrumb.Link href="/pokemon">Pokemon</Breadcrumb.Link> -->
+		<!-- 		</Breadcrumb.Item> -->
+		<!-- 		<Breadcrumb.Separator /> -->
+		<!-- 		<Breadcrumb.Item> -->
+		<!-- 			<Breadcrumb.Page>All Products</Breadcrumb.Page> -->
+		<!-- 		</Breadcrumb.Item> -->
+		<!-- 	</Breadcrumb.List> -->
+		<!-- </Breadcrumb.Root> -->
+
 		<slot />
 	</main>
 </div>

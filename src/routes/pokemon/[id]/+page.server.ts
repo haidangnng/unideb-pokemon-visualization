@@ -4,7 +4,7 @@ import {
 	API_POKEMON_TYPE_URL,
 	API_POKEMON_URL
 } from '$env/static/private';
-import type { PokemonDetail, PokemonStat, PokemonType } from '@/type/pokemon';
+import type { PokemonAbilities, PokemonDetail, PokemonStat, PokemonType } from '@/type/pokemon';
 import { error } from '@sveltejs/kit';
 
 const mappedPokemonStats = (stats: PokemonStat[]): Record<string, number> => {
@@ -34,6 +34,16 @@ const fetchPokemonTypes = async (
 	}));
 };
 
+const fetchPokemonAbilities = async (abilities: PokemonAbilities[]) => {
+	const detailAbilitiesResult = await Promise.all(
+		abilities.map(({ ability }) => fetch(ability.url))
+	);
+	const detailAbilityList = await Promise.all(
+		detailAbilitiesResult.map((abilityList) => abilityList.json())
+	);
+	return detailAbilityList;
+};
+
 export const load: PageServerLoad = async ({ params }) => {
 	try {
 		const { id } = params;
@@ -41,13 +51,15 @@ export const load: PageServerLoad = async ({ params }) => {
 		const pokemonDetail: PokemonDetail = await response.json();
 		const { stats } = pokemonDetail;
 
-		const types = (await fetchPokemonTypes(pokemonDetail.types)) || [];
+		const types = await fetchPokemonTypes(pokemonDetail.types);
+		const abilities = await fetchPokemonAbilities(pokemonDetail.abilities);
 
 		return {
 			...pokemonDetail,
 			types,
 			stats: mappedPokemonStats(stats),
-			sprites: `${API_POKEMON_SPRITES_URL}/${pokemonDetail.id}.png`
+			sprites: `${API_POKEMON_SPRITES_URL}/${pokemonDetail.id}.png`,
+			abilities
 		};
 	} catch (e) {
 		console.log(e);
