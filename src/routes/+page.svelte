@@ -1,7 +1,7 @@
 <script lang="ts">
 	import TypeChord from './_components/type-chord.svelte';
-
 	import ColorPie from './_components/color-pie.svelte';
+	import TypeForce from './_components/type-force.svelte';
 </script>
 
 <div class="flex justify-center items-center">
@@ -14,4 +14,6 @@
 		<h1>Colors</h1>
 		<ColorPie />
 	</div>
+
+	<TypeForce />
 </div>

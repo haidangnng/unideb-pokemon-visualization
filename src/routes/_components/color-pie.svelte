@@ -58,6 +58,7 @@
 			.select(container)
 			.append('svg')
 			.attr('height', height)
+			.attr('width', width)
 			.attr('viewBox', [-width / 2, -height / 2, width, height])
 			.attr('style', 'max-width: 100%; height: auto; font: 10px sans-serif;');
 
