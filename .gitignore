@@ -6,6 +6,10 @@ node_modules
 /.svelte-kit
 /build
 
+src/lib/mock
+src/lib/mock/*
+
+
 # OS
 .DS_Store
 Thumbs.db
