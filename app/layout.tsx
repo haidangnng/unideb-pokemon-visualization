@@ -1,16 +1,18 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+// import { Jersey_10 } from "next/font/google";
+import { VT323 } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/commons/navbar";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+// const geistMono = localFont({
+//   src: "./fonts/GeistMonoVF.woff",
+//   variable: "--font-geist-mono",
+//   weight: "100 900",
+// });
+
+const pixel = VT323({
+  subsets: ["latin"],
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -25,10 +27,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={`${pixel.className} antialiased h-screen`}>
+        <div className="flex flex-col gap-2 h-full p-2">
+          <Navbar />
+          <main className="rounded-md flex flex-1 border-2 p-4 w-full h-fit">
+            {children}
+          </main>
+        </div>
       </body>
     </html>
   );
